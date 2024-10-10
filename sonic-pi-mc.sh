@@ -214,6 +214,22 @@ StartServer --setup
 
 HelpAndInfo () {
 echo "####################### HELP #######################"
+echo "This script is inteded to be placed (and used) with the server folder."
+echo "It should not matter what version of minecraft you are using or whether it is modded or not."
+echo "This script works by creating a file that can be written to by sonic-pi (or another program.)"
+echo "This file it temporary and is not contained on he hard drive (to avoid lots read/write operations.)"
+echo "It will be located in the server folder in a new folder labeled tmp_pipes"
+echo ""
+echo ""
+echo "When using sonic-pi, you can write to the in_pipe file within the tmp_pipes folder."
+echo "Sonic-pi uses the Ruby laguage and most buitin commands seem to work (as far as i have tested[not very far]) in the sonic-pi interface."
+echo ""
+echo ""
+echo "REFERENCES:"
+echo "https://sonic-pi.net/tutorial.html"
+echo "https://ruby-doc.org/docs/ruby-doc-bundle/Manual/man-1.4/function.html"
+echo ""
+echo ""
 echo "OPTIONS/FLAGS"
 echo ""
 echo "--start"
@@ -253,6 +269,8 @@ echo "--backup-server"
 echo "--backup-server: Backs up the server files and folders with the date in the name. It will be located in the server folder itself."
 echo "No additional arguments."
 echo ""
+echo ""
+echo "Close the server with Ctrl-C"
 }
 
 #main args decider
