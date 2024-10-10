@@ -5,42 +5,6 @@ serverPath="$(dirname $(realpath $0))"
 serverName="$(basename "$serverPath")"
 
 #Functions
-PressAnyKeyToContinue () {
-	read -r -n 1 -p "Press any key to continue..."
-	clear
-}
-
-ChooseDirectory () { #user input for a generic chosen directory that can be used by the function that just called this one
-	chosenDirectory=""
-	while [ "$chosenDirectory" == "" ]; do
-		read -r -p "Directory: " chosenDirectory
-		echo
-		ConfirmUserInput
-		if [ "$userConfirmation" == "n" ]; then
-			clear
-			echo "$chosenDirectory" "Not Confirmed. Re-enter path to directory."
-			chosenDirectory=""
-		elif [ ! -d "$chosenDirectory" ]; then
-			clear
-			echo "Directory:" "$chosenDirectory" "Was NOT found. Please retype the full path to directory."    
-			chosenDirectory=""
-		fi
-	done
-} #end of ChooseGuestSourceDirectory
-
-ConfirmUserInput () {
-	userConfirmation=""
-	while [ "$userConfirmation" == "" ]; do
-		read -r -n 1 -p "Is this correct? [Y/n]" userConfirmation
-		echo
-		case "$userConfirmation" in
-			Y | y |"")  break ;;
-			N | n ) break ;;
-			[!YyNn])  clear ; echo "Input Not recognized. Please reconfirm."; userConfirmation="" ;;
-		esac
-	done
-} # end of ConfirmUserInput
-
 GenericSelectLoop () { #input arguments to function become the items to select (separated by space)
 PS3="Select via number: "
 selectedItem=""
